@@ -175,24 +175,16 @@ d3.json("assets/data/us.json", function(data) {
             treeSumSortType = document.forms[0].elements["treeSum"].value;
             treemap(root
             .sum(function (d) {
-                if (treeSumSortType == "number") 
-                {
+                if (treeSumSortType == "number") {
                     color = d3.scaleLinear().domain([0, 1/4*5000000, 2/4*5000000, 3/4*5000000, 5000000]).range(["#ffff1a", "#999900", "#00cc44", "#004d1a"]);
                     return d["Total College"];
-                }
-                
-                if (treeSumSortType == "percent") 
-                {
+                } else if (treeSumSortType == "percent") {
                     color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#66b3ff", "#004080", "#8000ff", "#cc99ff"]);
                     return d["Percent College"];
-                }
-                
-                if (treeSumSortType == "male") 
-                {
+                 } else if (treeSumSortType == "male") {
                     color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#ff6633", "#e69900", "#77773c", "#804000"]);
                     return d["Percent College - Male"];
-                }else if 
-                {
+                } else {
                     color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#4dc3ff", "#00cccc", "#258e8e", "#254d74"]);
                     return d["Percent College - Female"];
                 }
